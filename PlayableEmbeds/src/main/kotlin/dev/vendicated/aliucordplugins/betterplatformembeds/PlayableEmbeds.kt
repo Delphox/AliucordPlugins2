@@ -61,7 +61,7 @@ class PlayableEmbeds : Plugin() {
             }
             val url = embed.url ?: return@after
             when (embed.provider?.name) {
-/*              "YouTube" -> addYoutubeEmbed(layout, url) */
+                "YouTube" -> addPornHubEmbed()
                 "Spotify" -> addSpotifyEmbed(layout, url)
                 else -> addDefaultEmbed(layout, embed)
             }
