@@ -61,7 +61,7 @@ class PlayableEmbeds : Plugin() {
             }
             val url = embed.url ?: return@after
             when (embed.provider?.name) {
-                "YouTube" -> addYoutubeEmbed(layout, url)
+/*              "YouTube" -> addYoutubeEmbed(layout, url) */
                 "Spotify" -> addSpotifyEmbed(layout, url)
                 else -> addDefaultEmbed(layout, embed)
             }
@@ -109,7 +109,7 @@ class PlayableEmbeds : Plugin() {
         }
     }
 
-    private fun addYoutubeEmbed(layout: ViewGroup, url: String) {
+/*  private fun addYoutubeEmbed(layout: ViewGroup, url: String) {
         val ctx = layout.context
 
         val (_, videoId, _, timestamp) = youtubeUrlRe.find(url, 0).groupValues
@@ -175,7 +175,7 @@ class PlayableEmbeds : Plugin() {
                 "UTF-8"
             )
         }
-    }
+    } */
 
     private fun addSpotifyEmbed(layout: ViewGroup, url: String) {
         val ctx = layout.context
