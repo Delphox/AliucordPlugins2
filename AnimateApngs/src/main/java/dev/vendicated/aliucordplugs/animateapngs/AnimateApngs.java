@@ -56,7 +56,7 @@ public class AnimateApngs extends Plugin {
         var updateUI = InlineMediaView.class.getDeclaredMethod("updateUI", RenderableEmbedMedia.class, String.class, EmbedType.class, Integer.class, Integer.class, String.class);
         patcher.patch(updateUI, new Hook(param -> {
             var media = (RenderableEmbedMedia) param.args[0];
-            if (media == null || !media.a.endsWith(".png")) return;
+            if (media == null || !media.a.endsWith(".png") || !media.a.endsWith(".webp")) return;
 
             // Media server serves them as regular PNGs, only CDN serves actual APNGs.
             var url = media.a.replace("media.discordapp.net", "cdn.discordapp.com");
@@ -66,7 +66,7 @@ public class AnimateApngs extends Plugin {
         }));
 
 
-        var pattern = Pattern.compile("\\.png(?:\\?width=(\\d+)&height=(\\d+))?");
+        var pattern = Pattern.compile("\\.webp(?:\\?width=(\\d+)&height=(\\d+))?");
 
         var uriField = WidgetMedia.class.getDeclaredField("imageUri");
         uriField.setAccessible(true);
